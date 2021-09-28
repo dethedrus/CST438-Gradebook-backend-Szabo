@@ -31,8 +31,17 @@ public class EnrollmentController {
 	@Transactional
 	public EnrollmentDTO addEnrollment(@RequestBody EnrollmentDTO enrollmentDTO) {
 		
-		//TODO  complete this method in homework 4
-		
+		// Make a new enrollment to be saved
+		Enrollment enrollment = new Enrollment();
+		enrollment.setStudentEmail(enrollmentDTO.studentEmail);
+		enrollment.setStudentName(enrollmentDTO.studentName);
+
+		// If course exists, add enrollment for that course
+		if (courseRepository.findByCourse_id(enrollmentDTO.course_id) != null)
+		{
+		enrollment.setCourse(courseRepository.findByCourse_id(enrollmentDTO.course_id));
+		enrollmentRepository.save(enrollment);
+		}
 		return null;
 		
 	}

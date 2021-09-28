@@ -18,7 +18,7 @@ public class Cst438GradebookApplication  {
 	
 	@Bean(name = "RegistrationService")
 	@ConditionalOnProperty(prefix = "registration", name = "service", havingValue = "MQ")
-	public RegistrationService registrationServiceRESTMQ() {
+	public RegistrationService registrationServiceMQ() {
 		return new RegistrationServiceMQ();
 	}
 	
