@@ -45,6 +45,11 @@ public class RegistrationServiceMQ extends RegistrationService {
 	public void receive(EnrollmentDTO enrollmentDTO) {
 			 
 		System.out.println("Recieved message: \n" + enrollmentDTO.toString());
+		Enrollment enrollment = new Enrollment();
+		enrollment.setStudentEmail(enrollmentDTO.studentEmail);
+		enrollment.setStudentName(enrollmentDTO.studentName);
+		enrollment.setCourse(courseRepository.findByCourse_id(enrollmentDTO.course_id));
+		enrollmentRepository.save(enrollment);
 
 	}
 
