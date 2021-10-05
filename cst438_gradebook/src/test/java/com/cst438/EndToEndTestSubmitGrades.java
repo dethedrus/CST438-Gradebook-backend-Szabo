@@ -39,9 +39,8 @@ import com.cst438.domain.EnrollmentRepository;
 @SpringBootTest
 public class EndToEndTestSubmitGrades {
 
-	public static final String CHROME_DRIVER_FILE_LOCATION = "C:/chromedriver_win32/chromedriver.exe";
-
-	public static final String URL = "http://localhost:3000";
+	public static final String CHROME_DRIVER_FILE_LOCATION = "C:/Users/deth/Documents/CST 438/geckodriver.exe";
+	public static final String URL = "https://cst438-grade-frontend.herokuapp.com/";
 	public static final String TEST_USER_EMAIL = "test@csumb.edu";
 	public static final String TEST_INSTRUCTOR_EMAIL = "dwisneski@csumb.edu";
 	public static final int SLEEP_DURATION = 1000; // 1 second.
@@ -97,7 +96,7 @@ public class EndToEndTestSubmitGrades {
 		// IE 		webdriver.ie.driver 		InternetExplorerDriver
 		//@formatter:on
 
-		System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_FILE_LOCATION);
+		System.setProperty("webdriver.firefox.driver", CHROME_DRIVER_FILE_LOCATION);
 		WebDriver driver = new ChromeDriver();
 		// Puts an Implicit wait for 10 seconds before throwing exception
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
